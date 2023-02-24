@@ -128,7 +128,7 @@ class PVCNN2Unet(nn.Module):
                 ))[:,:,None].expand(-1,-1,inputs.shape[-1])
             temb_ori = temb  # B,embed_dim,Npoint 
         
-        style = kwargs['style'] 
+        style = kwargs['style']
         if self.clip_forge_enable:
             clip_feat = kwargs['clip_feat'] 
             assert(clip_feat is not None), f'require clip_feat as input'

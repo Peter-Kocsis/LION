@@ -11,17 +11,14 @@ copied and modified from source:
     and functions under 
     https://github.com/alexzhou907/PVD/tree/9747265a5f141e5546fd4f862bfa66aa59f1bd33/modules 
 """
-import copy
 import functools
-from loguru import logger
 from einops import rearrange
 import torch.nn as nn
 import torch
-import numpy as np
-import third_party.pvcnn.functional as F
+import lion.third_party.pvcnn.functional as F
 # from utils.checker import *
-from torch.cuda.amp import autocast, GradScaler, custom_fwd, custom_bwd 
-from .adagn import AdaGN 
+from torch.cuda.amp import custom_fwd, custom_bwd 
+from lion.models.adagn import AdaGN
 import os 
 quiet = int(os.environ.get('quiet', 0))
 class SE3d(nn.Module):
@@ -119,8 +116,6 @@ class BallQuery(nn.Module):
 
 class SharedMLP(nn.Module):
     def __init__(self, in_channels, out_channels, dim=1, cfg={}):
-
-        assert(len(cfg) > 0), cfg
         super().__init__()
         if dim==1:
             conv = nn.Conv1d
@@ -201,7 +196,6 @@ class PVConv(nn.Module):
         cfg={}
         ):
         super().__init__()
-        assert(len(cfg) > 0), cfg
         self.resolution = resolution
         self.voxelization = Voxelization(resolution,
                                          normalize=normalize,
@@ -455,7 +449,6 @@ def create_pointnet2_sa_components(sa_blocks, extra_feature_channels,
     Returns: 
         in_channels: the last output channels of the sa blocks 
     """
-    assert(len(cfg) > 0), cfg
     r, vr = width_multiplier, voxel_resolution_multiplier
     in_channels = extra_feature_channels + input_dim 
 
@@ -522,7 +515,6 @@ def create_pointnet2_fp_modules(fp_blocks, in_channels, sa_in_channels, embed_di
                                 with_se=False, normalize=True, eps=0,
                                 width_multiplier=1, voxel_resolution_multiplier=1,
                                 verbose=True, cfg={}):
-    assert(len(cfg) > 0), cfg
     r, vr = width_multiplier, voxel_resolution_multiplier
 
     fp_layers = []

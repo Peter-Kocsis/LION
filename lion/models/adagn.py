@@ -12,7 +12,7 @@ from loguru import logger
 import torch.nn as nn
 import torch
 import numpy as np
-from utils.checker import *
+from lion.utils.checker import *
 from .dense import dense
 import os 
 

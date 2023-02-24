@@ -8,22 +8,13 @@
 """ to train hierarchical VAE model 
 this trainer only train the vae without prior 
 """
-import os
-import sys
-import torch
-import torch.nn.functional as F
-import numpy as np
 from loguru import logger
 import torch.distributed as dist
 from trainers.base_trainer import BaseTrainer
-from utils.eval_helper import compute_NLL_metric
-from utils import model_helper, exp_helper, data_helper
 from utils.checker import *
 from utils import utils
 from trainers.common_fun import validate_inspect_noprior
 from torch.cuda.amp import autocast, GradScaler
-import third_party.pvcnn.functional as pvcnn_fn
-from calmsize import size as calmsize
 
 
 class Trainer(BaseTrainer):

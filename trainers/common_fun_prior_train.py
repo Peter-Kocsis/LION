@@ -16,7 +16,7 @@ from torch.cuda.amp import autocast, GradScaler
 from utils.sr_utils import SpectralNormCalculator
 from utils import utils
 from utils.vis_helper import visualize_point_clouds_3d
-from utils.diffusion_pvd import DiffusionDiscretized
+from lion.utils.diffusion_pvd import DiffusionDiscretized
 from utils.eval_helper import compute_NLL_metric 
 from utils import model_helper, exp_helper, data_helper
 from timeit import default_timer as timer

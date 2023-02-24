@@ -3,22 +3,18 @@ one for style latent, one for latent pts,
 based on trainers/train_prior.py 
 """
 import os
-import time
-import torchvision 
+import torchvision
 from PIL import Image 
 import functools
 import torch
-import torch.nn as nn
 import numpy as np
 from loguru import logger
 from utils.data_helper import normalize_point_clouds 
 from utils.vis_helper import visualize_point_clouds_3d
-from utils import model_helper, exp_helper, data_helper 
-from utils.diffusion_pvd import DiffusionDiscretized
-from utils.diffusion_continuous import make_diffusion, DiffusionBase
+from lion.utils.diffusion_pvd import DiffusionDiscretized
+from utils.diffusion_continuous import DiffusionBase
 from utils.checker import *
-from utils import utils
-from matplotlib import pyplot as plt 
+from matplotlib import pyplot as plt
 from timeit import default_timer as timer
 from trainers.train_2prior import Trainer as PriorTrainer
 def linear_interpolate_noise(noise):

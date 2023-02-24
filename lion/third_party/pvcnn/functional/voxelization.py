@@ -1,8 +1,8 @@
 from torch.autograd import Function
 import torch
 # from modules.functional.backend import _backend
-from third_party.pvcnn.functional.backend import _backend
-from torch.cuda.amp import autocast, GradScaler, custom_fwd, custom_bwd 
+from lion.third_party.pvcnn.functional.backend import _backend
+from torch.cuda.amp import custom_fwd, custom_bwd 
 
 __all__ = ['avg_voxelize']
 

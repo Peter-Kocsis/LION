@@ -7,35 +7,22 @@
 # license agreement from NVIDIA CORPORATION & AFFILIATES is strictly prohibited.
 """ to train hierarchical VAE model with single prior """
 import os
-import time
-from PIL import Image
-import gc
-import psutil
 import functools
-import torch
 import torch.nn.functional as F
-import torch.nn as nn
-import torchvision
 import numpy as np
 from loguru import logger
 import torch.distributed as dist
-from torch import optim
 from trainers.base_trainer import BaseTrainer
-from utils.ema import EMA
-from utils.model_helper import import_model, loss_fn
+from utils.model_helper import import_model
 from utils.vis_helper import visualize_point_clouds_3d
-from utils.eval_helper import compute_NLL_metric 
-from utils import model_helper, exp_helper, data_helper
 from utils.data_helper import normalize_point_clouds
-from utils.diffusion_pvd import DiffusionDiscretized
+from lion.utils.diffusion_pvd import DiffusionDiscretized
 from utils.diffusion_continuous import make_diffusion, DiffusionBase
 from utils.checker import *
 from utils import utils
-from matplotlib import pyplot as plt
-import third_party.pvcnn.functional as pvcnn_fn
+import lion.third_party.pvcnn.functional as pvcnn_fn
 from timeit import default_timer as timer
-from torch.optim import Adam as FusedAdam
-from torch.cuda.amp import autocast, GradScaler
+from torch.cuda.amp import autocast
 from trainers import common_fun_prior_train
 
 

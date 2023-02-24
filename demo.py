@@ -14,7 +14,7 @@ import clip
 import torch
 from PIL import Image
 from default_config import cfg as config
-from models.lion import LION
+from lion.models import LION
 from utils.vis_helper import plot_points
 from huggingface_hub import hf_hub_download 
 

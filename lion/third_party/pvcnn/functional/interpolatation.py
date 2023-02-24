@@ -1,9 +1,9 @@
 from torch.autograd import Function
 
 # from modules.functional.backend import _backend
-from third_party.pvcnn.functional.backend import _backend
+from lion.third_party.pvcnn.functional.backend import _backend
 import torch
-from torch.cuda.amp import autocast, GradScaler, custom_fwd, custom_bwd 
+from torch.cuda.amp import custom_fwd, custom_bwd 
 
 __all__ = ['nearest_neighbor_interpolate']
 

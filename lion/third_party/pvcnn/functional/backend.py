@@ -24,6 +24,7 @@ _backend = load(name='_pvcnn_backend',
                         'voxelization/vox.cu',
                         'bindings.cpp',
                     ]
-                ])
+                ],
+                extra_ldflags=[f"-L{os.path.expandvars('$CONDA_PREFIX')}/lib"])
 
 __all__ = ['_backend']

@@ -11,15 +11,12 @@ copied and modified from source:
     and functions under 
     https://github.com/alexzhou907/PVD/tree/9747265a5f141e5546fd4f862bfa66aa59f1bd33/modules 
 """
-import copy
 import functools
-from loguru import logger
 from einops import rearrange
 import torch.nn as nn
 import torch
-import numpy as np
-import third_party.pvcnn.functional as F
-from torch.cuda.amp import autocast, GradScaler, custom_fwd, custom_bwd 
+import lion.third_party.pvcnn.functional as F
+from torch.cuda.amp import custom_fwd, custom_bwd 
 
 class SE3d(nn.Module):
     def __init__(self, channel, reduction=8):

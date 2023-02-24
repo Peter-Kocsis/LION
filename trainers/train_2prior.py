@@ -30,12 +30,12 @@ from utils.eval_helper import compute_NLL_metric
 from utils import model_helper, exp_helper, data_helper
 from utils.data_helper import normalize_point_clouds
 ## from utils.diffusion_discretized import DiffusionDiscretized
-from utils.diffusion_pvd import DiffusionDiscretized
+from lion.utils.diffusion_pvd import DiffusionDiscretized
 from utils.diffusion_continuous import make_diffusion, DiffusionBase
 from utils.checker import *
 from utils import utils
 from matplotlib import pyplot as plt
-import third_party.pvcnn.functional as pvcnn_fn
+import lion.third_party.pvcnn.functional as pvcnn_fn
 from timeit import default_timer as timer
 from torch.optim import Adam as FusedAdam
 from torch.cuda.amp import autocast, GradScaler

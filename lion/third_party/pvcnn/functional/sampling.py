@@ -3,7 +3,7 @@ import torch
 from torch.autograd import Function
 
 # from modules.functional.backend import _backend
-from third_party.pvcnn.functional.backend import _backend
+from lion.third_party.pvcnn.functional.backend import _backend
 
 __all__ = ['gather', 'furthest_point_sample', 'logits_mask']
 

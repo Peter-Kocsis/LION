@@ -1,6 +1,4 @@
-from torch.autograd import Function
-
-from third_party.pvcnn.functional.backend import _backend
+from lion.third_party.pvcnn.functional.backend import _backend
 
 __all__ = ['ball_query']
 

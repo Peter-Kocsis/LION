@@ -5,11 +5,11 @@
 # and any modifications thereto.  Any use, reproduction, disclosure or
 # distribution of this software and related documentation without an express
 # license agreement from NVIDIA CORPORATION & AFFILIATES is strictly prohibited.
-from models.vae_adain import Model as VAE
-from models.latent_points_ada_localprior import PVCNN2Prior as LocalPrior
-from utils.diffusion_pvd import DiffusionDiscretized
-from utils.vis_helper import plot_points
-from utils.model_helper import import_model
+from lion.models.vae_adain import Model as VAE
+from lion.models.latent_points_ada_localprior import PVCNN2Prior as LocalPrior
+from lion.utils.diffusion_pvd import DiffusionDiscretized
+from lion.utils.vis_helper import plot_points
+from lion.utils.model_helper import import_model
 from diffusers import DDPMScheduler
 import torch
 from matplotlib import pyplot as plt
